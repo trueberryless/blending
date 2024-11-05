@@ -4,6 +4,7 @@ import starlight from "@astrojs/starlight";
 import solidJs from "@astrojs/solid-js";
 
 import starlightBlog from "starlight-blog";
+import starlightImageZoom from "starlight-image-zoom";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
   integrations: [
     starlight({
       plugins: [
+        starlightImageZoom(),
         starlightBlog({
           authors: {
             deminearchiver: {
@@ -71,7 +73,10 @@ export default defineConfig({
         "./src/styles/custom.css",
         "./src/styles/theme.css",
         "./src/styles/landing.css",
-      ]
+      ],
+      components: {
+          MarkdownContent: "./src/components/MarkdownContent.astro",
+      },
     }),
     solidJs(),
   ]
